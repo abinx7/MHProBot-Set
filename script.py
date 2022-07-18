@@ -339,9 +339,11 @@ Total Members = <code>{}</code>
 Added By - {}
 """
 
-    LOG_TEXT_P = """#NewUser
+    LOG_TEXT_P = """#NewUser Detected 👀
 ID - <code>{}</code>
-Name - {}"""
+Name - {}
+Bot - <a href=https://t.me/{}>{}</a>
+"""
 
     ZOMBIES_TXT = """Help: <b>Zombies</b>
 
