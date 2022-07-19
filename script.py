@@ -342,8 +342,7 @@ Added By - {}
     LOG_TEXT_P = """#NewUser Detected 
 ID - <code>{}</code>
 Name - 👀 {}
-Bot - <a href=https://t.me/{}>{}</a>
-"""
+Bot - @MHChatsBot"""
 
     ZOMBIES_TXT = """Help: <b>Zombies</b>
 
