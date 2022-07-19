@@ -333,16 +333,18 @@ a bot to create a link to share text in the telegram.
 • These commands works on both pm and group.
 • These commands can be used by any group member."""
 
-    LOG_TEXT_G = """#NewGroup
-Group = {}(<code>{}</code>)
+    LOG_TEXT_G = """#NewGroup 
+Group = {}{}
 Total Members = <code>{}</code>
 Added By - {}
 """
 
     LOG_TEXT_P = """#NewUser Detected 
-ID - <code>{}</code>
+
+#ID{}
 Name - 👀 {}
-Bot - @MHChatsBot"""
+
+Bot - <b><a href=https://t.me/MHChatsBot>Eᴍɪʟɪᴀ Cʟᴀʀᴋᴇ</a></b><b>"""
 
     ZOMBIES_TXT = """Help: <b>Zombies</b>
 
