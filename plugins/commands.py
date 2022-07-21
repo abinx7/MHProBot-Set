@@ -23,15 +23,15 @@ async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('⭕️ Channels ⭕️', url='https://t.me/MH_Linkz')
+                InlineKeyboardButton('📜 ɢʀᴏᴜᴘ ʀᴜʟᴇs 📜', url="https://telegra.ph/GROUP-RULES-07-15-3")
             ],
             [
-                InlineKeyboardButton('Updates 💬', url=f"https://t.me/MoviesHub_Updates")
+                InlineKeyboardButton('✗ Close ✗', callback_data="close_data"),
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await client.send_photo(chat_id=message.chat.id, photo='https://telegra.ph/file/a942df989465ab5bd35d8.jpg', reply_markup=reply_markup, reply_to_message_id=message.message_id)
-        await asyncio.sleep(60)
+        await client.send_sticker(chat_id=message.chat.id, sticker='CAACAgUAAxkBAAEFT-pi1nRCRLfnm1NkMMz3jDmDWYA4sAACJQUAAsjpsVYHpmVOBardDCkE', reply_markup=reply_markup, reply_to_message_id=message.message_id)
+        await asyncio.sleep(120)
         if not await db.get_chat(message.chat.id):
             total=await client.get_chat_members_count(message.chat.id)
             await client.send_message(LOG_CHANNEL, Script.LOG_TEXT_G.format(message.chat.title, message.chat.id, total, "Unknown"))       
@@ -470,6 +470,25 @@ async def settings(client, message):
             reply_to_message_id=message.message_id
         )
 
+
+
+@Client.on_message(
+    (
+        filters.command(["report"]) |
+        filters.regex("@admins") |
+        filters.regex("@admin")
+    ) &
+    filters.group
+)
+async def report(bot, message):
+    buttons = [[
+        InlineKeyboardButton('✅ Rᴇᴘᴏʀᴛ Sᴇɴᴛ Sᴜᴄᴄᴇssꜰᴜʟ ✅', callback_data='close_pages')
+    ]]
+    reply_markup = InlineKeyboardMarkup(buttons)
+    k = await message.reply_sticker("CAACAgUAAxkBAAEFUA1i1n4gT-8J5GJIvBgVLjAIdlVFlwACFQcAAsTjuVbP1j29PKhs4CkE", reply_markup=reply_markup)
+    await asyncio.sleep(43200)
+    await k.delete()
+    return
 
 
 @Client.on_message(filters.command('set_template'))
