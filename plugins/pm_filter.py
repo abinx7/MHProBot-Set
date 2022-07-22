@@ -116,7 +116,7 @@ async def next_page(bot, query):
             [
                 InlineKeyboardButton(f"⚠️ Iɴғᴏ ⚠️",callback_data="seriess"),
                 InlineKeyboardButton(text=f"Cʜᴇᴄᴋ PM!", url=f"https://t.me/{temp.U_NAME}"),
-                InlineKeyboardButton(f'🗄 ғɪʟᴇs: {total_results}', 'dupe')
+                InlineKeyboardButton(f'🗄 ғɪʟᴇs: {total_results}', 'reqst11')
             ])
 
     btn.insert(0, [
@@ -881,7 +881,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == 'reqst11':
         await query.answer(f"Hey {query.from_user.first_name} Bro 😍\n\n🎯 Click The Below Button The Files You Want... And Start The Bot Get The File and Go To Your House..😂\n\n© Moviehub", True)
     try: await query.answer('Piracy Is Crime')
-
+    except: pass
+    
+    
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
@@ -945,7 +947,7 @@ async def auto_filter(client, msg, spoll=False):
 
     btn.insert(0, [
         InlineKeyboardButton(f"⚠️ Iɴғᴏ ⚠️",callback_data="seriess"),
-        InlineKeyboardButton(f'🗄 ғɪʟᴇs: {total_results}', 'dupe')
+        InlineKeyboardButton(f'🗄 ғɪʟᴇs: {total_results}', 'reqst11')
     ])
     btn.insert(0, [
         InlineKeyboardButton(f"🎬 {search} 🎬",callback_data="moviess")
