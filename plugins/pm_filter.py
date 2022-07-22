@@ -116,11 +116,11 @@ async def next_page(bot, query):
             [
                 InlineKeyboardButton("⚠️ Iɴғᴏ ⚠️", url="https://t.me/MovieHub_OTT"),
                 InlineKeyboardButton(text=f"Cʜᴇᴄᴋ PM!", url=f"https://t.me/{temp.U_NAME}"),
-                InlineKeyboardButton(f'🗄 ғɪʟᴇ𝐬: {total_results}')
+                InlineKeyboardButton("🗄 ғɪʟᴇ𝐬:", url="https://t.me/MovieHub_OTT")
             ])
 
     btn.insert(0, [
-        InlineKeyboardButton("🤖 Check Bot PM First 🤖", url=f"https://t.me/{temp.U_NAME}")
+        InlineKeyboardButton("🎬 {search} 🎬", url=f"https://t.me/{temp.U_NAME}")
     ])
     try:
         await query.edit_message_reply_markup(
@@ -940,10 +940,10 @@ async def auto_filter(client, msg, spoll=False):
 
     btn.insert(0, [
         InlineKeyboardButton("⚠️ Iɴғᴏ ⚠️", url="https://t.me/MovieHub_OTT"),
-        InlineKeyboardButton(f'🗄 ᴛᴏᴛᴀʟ ғɪʟᴇ𝐬: {total_results}')
+        InlineKeyboardButton("🗄 ғɪʟᴇ𝐬:", url="https://t.me/MovieHub_OTT")
     ])
     btn.insert(0, [
-        InlineKeyboardButton("🤖 Check Bot PM First 🤖", url=f"https://t.me/{temp.U_NAME}")
+        InlineKeyboardButton("🎬 {search} 🎬", url=f"https://t.me/{temp.U_NAME}")
     ])
     reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
