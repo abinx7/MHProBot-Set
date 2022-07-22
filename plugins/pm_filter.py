@@ -114,13 +114,13 @@ async def next_page(bot, query):
             )
     btn.insert(0,
             [
-                InlineKeyboardButton("⚠️ Iɴғᴏ ⚠️", url="https://t.me/MovieHub_OTT"),
+                InlineKeyboardButton(f"⚠️ Iɴғᴏ ⚠️",callback_data="moviess"),
                 InlineKeyboardButton(text=f"Cʜᴇᴄᴋ PM!", url=f"https://t.me/{temp.U_NAME}"),
                 InlineKeyboardButton("🗄 ғɪʟᴇ𝐬:", url="https://t.me/MovieHub_OTT")
             ])
 
     btn.insert(0, [
-        InlineKeyboardButton("🎬 {search} 🎬", url=f"https://t.me/{temp.U_NAME}")
+        InlineKeyboardButton(f"🎬 {search} 🎬",callback_data="moviess")
     ])
     try:
         await query.edit_message_reply_markup(
@@ -942,8 +942,8 @@ async def auto_filter(client, msg, spoll=False):
         )
 
     btn.insert(0, [
-        InlineKeyboardButton("⚠️ Iɴғᴏ ⚠️", url="https://t.me/MovieHub_OTT"),
-        InlineKeyboardButton("🗄 ғɪʟᴇ𝐬:", url="https://t.me/MovieHub_OTT")
+        InlineKeyboardButton(f"⚠️ Iɴғᴏ ⚠️",callback_data="moviess"),
+        InlineKeyboardButton("🗄 ᴛᴏᴛᴀʟ ғɪʟᴇ𝐬:", url="https://t.me/MovieHub_OTT")
     ])
     btn.insert(0, [
         InlineKeyboardButton(f"🎬 {search} 🎬",callback_data="moviess")
