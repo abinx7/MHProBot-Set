@@ -116,7 +116,7 @@ async def next_page(bot, query):
             [
                 InlineKeyboardButton("⚠️ Iɴғᴏ ⚠️", url="https://t.me/MovieHub_OTT"),
                 InlineKeyboardButton(text=f"Cʜᴇᴄᴋ PM!", url=f"https://t.me/{temp.U_NAME}"),
-                InlineKeyboardButton("🗄 ᴛᴏᴛᴀʟ ғɪʟᴇ𝐬:", url="https://t.me/MH_Series")
+                InlineKeyboardButton("🗄 ғɪʟᴇ𝐬: {total_results}")
             ])
 
     btn.insert(0, [
@@ -940,7 +940,7 @@ async def auto_filter(client, msg, spoll=False):
 
     btn.insert(0, [
         InlineKeyboardButton("⚠️ Iɴғᴏ ⚠️", url="https://t.me/MovieHub_OTT"),
-        InlineKeyboardButton("🗄 ᴛᴏᴛᴀʟ ғɪʟᴇ𝐬:", url="https://t.me/MH_Series")
+        InlineKeyboardButton("🗄 ᴛᴏᴛᴀʟ ғɪʟᴇ𝐬: {total_results}")
     ])
     btn.insert(0, [
         InlineKeyboardButton("🤖 Check Bot PM First 🤖", url=f"https://t.me/{temp.U_NAME}")
