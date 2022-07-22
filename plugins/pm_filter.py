@@ -98,26 +98,25 @@ async def next_page(bot, query):
     if n_offset == 0:
         btn.append(
             [InlineKeyboardButton("«« Bᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
-             InlineKeyboardButton(text=f"Cʜᴇᴄᴋ PM!", url=f"https://t.me/{temp.U_NAME}"),
-             InlineKeyboardButton(f"⌫ Eɴᴅ ✗", callback_data="close_pages")]
+             InlineKeyboardButton(f"【{round(int(offset) / 10) + 1} / {round(total / 10)}】", callback_data="pages"),
+             InlineKeyboardButton(f"✗ Cʟᴏsᴇ ✗", callback_data="close_data")]
         )
     elif off_set is None:
         btn.append(
             [InlineKeyboardButton(f"【{round(int(offset) / 10) + 1} / {round(total / 10)}】", callback_data="pages"),
-             InlineKeyboardButton(text=f"Cʜᴇᴄᴋ PM!", url=f"https://t.me/{temp.U_NAME}"),
              InlineKeyboardButton("Nᴇxᴛ »»", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
                 InlineKeyboardButton("«« Bᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
-                InlineKeyboardButton(text=f"Cʜᴇᴄᴋ PM!", url=f"https://t.me/{temp.U_NAME}"),
+                InlineKeyboardButton(f"【{round(int(offset) / 10) + 1} / {round(total / 10)}】", callback_data="pages"),
                 InlineKeyboardButton("Nᴇxᴛ »»", callback_data=f"next_{req}_{key}_{n_offset}")]
             )
     btn.insert(0,
             [
-                InlineKeyboardButton("Nᴇᴡ Mᴏᴠɪᴇs", url="https://t.me/MovieHub_OTT"),
-                InlineKeyboardButton(f"【{round(int(offset) / 10) + 1} / {round(total / 10)}】", callback_data="pages"),
-                InlineKeyboardButton("Wᴇʙ Sᴇʀɪᴇs", url="https://t.me/MH_Series")
+                InlineKeyboardButton("⚠️ Iɴғᴏ ⚠️", url="https://t.me/MovieHub_OTT"),
+                InlineKeyboardButton(text=f"Cʜᴇᴄᴋ PM!", url=f"https://t.me/{temp.U_NAME}"),
+                InlineKeyboardButton("🗄 ᴛᴏᴛᴀʟ ғɪʟᴇ𝐬:", url="https://t.me/MH_Series")
             ])
 
     btn.insert(0, [
@@ -940,8 +939,11 @@ async def auto_filter(client, msg, spoll=False):
         )
 
     btn.insert(0, [
-        InlineKeyboardButton("Nᴇᴡ Mᴏᴠɪᴇs 🍿", url="https://t.me/MovieHub_OTT"),
-        InlineKeyboardButton("📺 Tᴠ-Wᴇʙ Sᴇʀɪᴇs", url="https://t.me/MH_Series")
+        InlineKeyboardButton("⚠️ Iɴғᴏ ⚠️", url="https://t.me/MovieHub_OTT"),
+        InlineKeyboardButton("🗄 ᴛᴏᴛᴀʟ ғɪʟᴇ𝐬:", url="https://t.me/MH_Series")
+    ])
+    btn.insert(0, [
+        InlineKeyboardButton("🤖 Check Bot PM First 🤖", url=f"https://t.me/{temp.U_NAME}")
     ])
     reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
@@ -983,25 +985,25 @@ async def auto_filter(client, msg, spoll=False):
     if imdb and imdb.get('poster'):
         try:
             hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600)
+            await asyncio.sleep(300)
             await hehe.delete()
             await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600)
+            await asyncio.sleep(300)
             await hmm.delete()
             await message.delete()
         except Exception as e:
             logger.exception(e)
-            fek = await message.reply_photo(photo="https://telegra.ph/file/a942df989465ab5bd35d8.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600)
+            fek = await message.reply_sticker("CAACAgUAAxkBAAEFT-5i1nRPQndTD2RVcHlbHprxiszWcwACwAQAApItsFar8HO_q3Y4SCkE", reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(300)
             await fek.delete()
             await msg.delete()
     else:
-        fuk = await message.reply_photo(photo="https://telegra.ph/file/a942df989465ab5bd35d8.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(600)
+        fuk = await message.reply_sticker("CAACAgUAAxkBAAEFT-5i1nRPQndTD2RVcHlbHprxiszWcwACwAQAApItsFar8HO_q3Y4SCkE", reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
+        await asyncio.sleep(300)
         await fuk.delete()
         await msg.delete()
     if spoll:
@@ -1075,7 +1077,7 @@ async def advantage_spell_chok(msg):
     btn.append([InlineKeyboardButton(text="✘ Cʟᴏsᴇ ✘", callback_data=f'spolling#{user}#close_spellcheck')])
     m = await msg.reply("<b> couldn't find anything related to that\nDid you mean any one of these?\n\n<i>Or go to google or imdb and check your spelling</i></b>",
                     reply_markup=InlineKeyboardMarkup(btn))
-    await asyncio.sleep(30)
+    await asyncio.sleep(60)
     await m.delete()
     await msg.delete()
 
