@@ -97,30 +97,55 @@ async def next_page(bot, query):
         off_set = offset - 10
     if n_offset == 0:
         btn.append(
-            [InlineKeyboardButton("«« Bᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
-             InlineKeyboardButton(f"【{round(int(offset) / 10) + 1} / {round(total / 10)}】", callback_data="pages"),
-             InlineKeyboardButton(f"✗ Cʟᴏsᴇ ✗", callback_data="close_data")]
+
+            [InlineKeyboardButton("⏪ BACK", callback_data=f"next_{req}_{key}_{off_set}"),
+
+             InlineKeyboardButton(text=f"Check PM!", url=f"https://t.me/{temp.U_NAME}"),
+
+             InlineKeyboardButton(f"📃 {round(int(offset) / 10) + 1} / {round(total / 10)}",
+
+                                  callback_data="pages")]
+
         )
+
     elif off_set is None:
+
         btn.append(
-            [InlineKeyboardButton(f"【{round(int(offset) / 10) + 1} / {round(total / 10)}】", callback_data="pages"),
-             InlineKeyboardButton("Nᴇxᴛ »»", callback_data=f"next_{req}_{key}_{n_offset}")])
+
+            [InlineKeyboardButton(f"🗓 {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
+
+             InlineKeyboardButton(text=f"Check PM!", url=f"https://t.me/{temp.U_NAME}"),
+
+             InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
+
     else:
+
         btn.append(
+
             [
-                InlineKeyboardButton("«« Bᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
-                InlineKeyboardButton(f"【{round(int(offset) / 10) + 1} / {round(total / 10)}】", callback_data="pages"),
-                InlineKeyboardButton("Nᴇxᴛ »»", callback_data=f"next_{req}_{key}_{n_offset}")]
+
+                InlineKeyboardButton("⏪ BACK", callback_data=f"next_{req}_{key}_{off_set}"),
+
+                InlineKeyboardButton(f"🗓 {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
+
+                InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")]
+
             )
+
     btn.insert(0,
+
             [
-                InlineKeyboardButton(f"⚠️ Iɴғᴏ ⚠️",callback_data="seriess"),
-                InlineKeyboardButton(text=f"Cʜᴇᴄᴋ PM!", url=f"https://t.me/{temp.U_NAME}"),
-                InlineKeyboardButton(f'🗄 ғɪʟᴇs: {total_results}', 'reqst11')
+
+                InlineKeyboardButton("⭕️ Movie", url="https://t.me/+26XbUS8O3cM1MDU1"),
+
+                InlineKeyboardButton("Series ⭕️", url="https://t.me/+VWYQKLaIim4yNjk1")
+
             ])
 
     btn.insert(0, [
-        InlineKeyboardButton(f"🎬 {search} 🎬",callback_data="moviess")
+
+        InlineKeyboardButton("🤖 Check Bot PM First 🤖", url=f"https://t.me/{temp.U_NAME}")
+
     ])
     try:
         await query.edit_message_reply_markup(
